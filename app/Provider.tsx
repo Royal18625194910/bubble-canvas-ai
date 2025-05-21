@@ -1,11 +1,13 @@
 "use client";
 import { api } from "@/convex/_generated/api";
+import { useUserStore } from "@/store/useUser.Store";
 import { useUser } from "@stackframe/stack";
 import { useMutation } from "convex/react";
 import { useEffect } from "react";
 
 const Provider = ({ children }: { children: React.ReactNode }) => {
 	const createUserMutation = useMutation(api.users.CreateUser);
+	const { setUser } = useUserStore();
 	const user = useUser();
 	const createUser = async () => {
 		const res = await createUserMutation({
@@ -13,7 +15,7 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
 			email: user?.primaryEmail as string,
 			picture: user?.profileImageUrl as string,
 		});
-		console.log(res);
+		setUser(res);
 	};
 
 	useEffect(() => {

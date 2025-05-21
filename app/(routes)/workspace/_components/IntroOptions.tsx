@@ -3,6 +3,7 @@ import { WorkSpaceProducts } from "@/constants/data";
 import { api } from "@/convex/_generated/api";
 import { useUserStore } from "@/store/useUser.Store";
 import { useMutation } from "convex/react";
+import { BsYoutube } from "react-icons/bs";
 import RecentDesign from "./RecentDesign";
 
 const IntroOptions = () => {
@@ -33,7 +34,10 @@ const IntroOptions = () => {
 						onClick={() => handleAddNewDesign(item)}
 						key={index}
 						className="mt-4 flex flex-col items-center justify-center gap-1 cursor-pointer">
-						<div className="w-[60px] h-[60px] rounded-full bg-purple-400 hover:scale-125 transition-all" />
+						<div className="w-[60px] h-[60px] flex rounded-full hover:scale-125 transition-all justify-center items-center">
+							<BsYoutube size={50} color="red" />
+							{/* <FaTiktok size={50} color="black" /> */}
+						</div>
 						<span>{item.name}</span>
 					</div>
 				))}

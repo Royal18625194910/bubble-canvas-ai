@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import CustomDialog from "./CustomDialog";
 
 const RecentDesign = () => {
 	return (
@@ -9,7 +10,9 @@ const RecentDesign = () => {
 				<p className="text-xl mt-10">
 					You don't design any!!! Create one new now
 				</p>
-				<Button className="mt-6">Create New</Button>
+				<CustomDialog>
+					<Button className="mt-6">Create New</Button>
+				</CustomDialog>
 			</div>
 		</div>
 	);
