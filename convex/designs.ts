@@ -1,5 +1,5 @@
 import { v } from "convex/values";
-import { mutation } from "./_generated/server";
+import { mutation, query } from "./_generated/server";
 
 export const CreateNewDesign = mutation({
   args: {
@@ -18,3 +18,14 @@ export const CreateNewDesign = mutation({
     return design;
   },
 });
+
+// 获取design
+export const GetDesign = query({
+  args: {
+    id: v.id("designs"),
+  },
+  handler: async (ctx, args) => {
+    const design = await ctx.db.get(args.id);
+    return design;
+  },
+})

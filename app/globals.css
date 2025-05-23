@@ -76,3 +76,15 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+
+/* ChromePicker */
+.chrome-picker {
+  border: none !important;
+  box-shadow: none !important;
+  border: 0.5rem;
+  width: auto !important;
+  height: auto !important;
+  border-radius: 10px!important;
+  overflow: hidden!important;
+}

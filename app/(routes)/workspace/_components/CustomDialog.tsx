@@ -1,5 +1,6 @@
 import {
 	AlertDialog,
+	AlertDialogCancel,
 	AlertDialogContent,
 	AlertDialogDescription,
 	AlertDialogFooter,
@@ -13,10 +14,13 @@ import { api } from "@/convex/_generated/api";
 import { useUserStore } from "@/store/useUser.Store";
 import { useMutation } from "convex/react";
 import { Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { AiOutlineClose } from "react-icons/ai";
 
 const CustomDialog = ({ children }: { children: React.ReactNode }) => {
 	const { user } = useUserStore();
+	const router = useRouter();
 	const [open, setOpen] = useState(false);
 	const CreateNewDesignAPI = useMutation(api.designs.CreateNewDesign);
 	const [loading, setLoading] = useState(false);
@@ -36,18 +40,27 @@ const CustomDialog = ({ children }: { children: React.ReactNode }) => {
 				uid: user._id,
 			});
 			console.log("res", res);
+			setLoading(false);
+			setOpen(false);
+			router.push(`/design/${res}`);
 		} catch (error) {
 			console.log("error", error);
+		} finally {
+			setLoading(false);
+			setOpen(false);
 		}
-		setLoading(false);
-		setOpen(false);
 	};
 	return (
 		<AlertDialog open={open} onOpenChange={setOpen}>
 			<AlertDialogTrigger asChild>{children}</AlertDialogTrigger>
 			<AlertDialogContent>
 				<AlertDialogHeader>
-					<AlertDialogTitle>Creae Custom Canvas</AlertDialogTitle>
+					<div className="flex justify-between items-center">
+						<AlertDialogTitle>Creae Custom Canvas</AlertDialogTitle>
+						<AlertDialogCancel className="w-7  h-7">
+							<AiOutlineClose />
+						</AlertDialogCancel>
+					</div>
 					<AlertDialogDescription>
 						Provide Canvas With and Height
 					</AlertDialogDescription>
