@@ -1,14 +1,25 @@
 import AddImageSettings from "@/containers/AddImageSettings";
 import BackgroundSettings from "@/containers/BackgroundSettings";
+import ElementSettings from "@/containers/ElementSettings";
+import FillColor from "@/containers/FillColor";
 import {
 	Atom,
+	Circle,
 	ComponentIcon,
 	Folder,
 	Home,
 	Image,
 	LayoutDashboardIcon,
 	LayoutPanelTop,
+	Minus,
+	Palette,
+	RectangleVertical,
 	Settings,
+	Square,
+	SquareRoundCorner,
+	Star,
+	Trash,
+	Triangle,
 	Type,
 	WalletCardsIcon,
 	WandSparkles,
@@ -80,6 +91,7 @@ export const SideBarMenus = [
 		name: "Elements",
 		icon: ComponentIcon,
 		description: "Select a Elements to start designing",
+		component: <ElementSettings />,
 	},
 	{
 		name: "Images",
@@ -107,5 +119,52 @@ export const SideBarMenus = [
 		name: "Settings",
 		icon: Settings,
 		description: "This is Settings",
+	},
+];
+
+export const Shapes = [
+	{
+		name: "Rectangle",
+		icon: RectangleVertical,
+	},
+	{
+		name: "Circle",
+		icon: Circle,
+	},
+	{
+		name: "Triangle",
+		icon: Triangle,
+	},
+	{
+		name: "Star",
+		icon: Star,
+	},
+	{
+		name: "Line",
+		icon: Minus,
+	},
+];
+
+export const shapeTools = [
+	{
+		name: "fill",
+		icon: Palette,
+		component: <FillColor />,
+	},
+	{
+		name: "rect",
+		icon: Square,
+	},
+	{
+		name: "line",
+		icon: Minus,
+	},
+	{
+		name: "radius",
+		icon: SquareRoundCorner,
+	},
+	{
+		name: "delete",
+		icon: Trash,
 	},
 ];

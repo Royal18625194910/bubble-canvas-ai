@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useCanvasEditorStore } from "@/store/useCanvasEditor.Store";
+import { FabricImage } from "fabric";
 import { SearchIcon } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -9,6 +11,7 @@ const SearchImages = () => {
 
 	const [imgs, setImgs] = useState([]);
 	const [imgInput, setImgInput] = useState("");
+	const { canvasEditor } = useCanvasEditorStore();
 
 	const getImageListAPI = async (query: string) => {
 		const res = await fetch(
@@ -18,6 +21,13 @@ const SearchImages = () => {
 		console.log("data", data.results);
 		setImgs(data.results);
 		return data.results;
+	};
+
+	const addImgToCanvas = async (imgUrl: string) => {
+		console.log("imgUrl", imgUrl);
+		const canvasImg = await FabricImage.fromURL(imgUrl);
+		canvasEditor?.add(canvasImg);
+		canvasEditor?.renderAll();
 	};
 
 	useEffect(() => {
@@ -41,13 +51,15 @@ const SearchImages = () => {
 			</div>
 			<div className="mt-4 grid grid-cols-2 gap-4 h-[70vh] overflow-y-auto py-2">
 				{imgs.map((img: any) => (
-					<Image
-						src={img.urls.thumb}
-						alt={img.alt_description}
-						width={300}
-						height={300}
-						className="rounded-md w-full h-[80px] object-cover"
-					/>
+					<div key={img.id} onClick={() => addImgToCanvas(img.urls.small)}>
+						<Image
+							src={img.urls.thumb}
+							alt={img.alt_description}
+							width={300}
+							height={300}
+							className="rounded-md w-full h-[80px] object-cover"
+						/>
+					</div>
 				))}
 			</div>
 		</div>
