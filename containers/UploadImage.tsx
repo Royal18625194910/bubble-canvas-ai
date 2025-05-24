@@ -15,6 +15,7 @@ const UploadImage = () => {
 		urlEndpoint: process.env.NEXT_PUBLIC_URL_ENDPOINT!,
 	});
 
+	// 上传图片
 	const onUploadImage = async (file: File) => {
 		if (loading) return;
 		console.log("file", file);
