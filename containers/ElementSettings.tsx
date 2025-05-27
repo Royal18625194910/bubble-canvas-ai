@@ -11,7 +11,7 @@ const ElementSettings = () => {
 		radius: 50,
 		fill: "black",
 		stroke: "black",
-		strokeWidth: 0,
+		strokeWidth: 1,
 	};
 
 	const { canvasEditor } = useCanvasEditorStore();

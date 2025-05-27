@@ -2,15 +2,16 @@ import { useCanvasEditorStore } from "@/store/useCanvasEditor.Store";
 import { useState } from "react";
 import ColorPickerEditor from "./ColorPickerEditor";
 
-const FillColor = () => {
+function BorderColor() {
 	const [color, setColor] = useState("#000000");
 	const { canvasEditor } = useCanvasEditorStore();
 	const onColorChange = (color: string) => {
 		console.log("color", color);
 		setColor(color);
 		const activeObject = canvasEditor?.getActiveObject();
+		console.log("activeObject", activeObject);
 		if (activeObject) {
-			activeObject.set({ fill: color });
+			activeObject.set({ stroke: color });
 			canvasEditor?.add(activeObject);
 			canvasEditor?.renderAll();
 		}
@@ -23,6 +24,6 @@ const FillColor = () => {
 			/>
 		</div>
 	);
-};
+}
 
-export default FillColor;
+export default BorderColor;

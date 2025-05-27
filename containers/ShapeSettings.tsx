@@ -4,8 +4,18 @@ import {
 	PopoverTrigger,
 } from "@/components/ui/popover";
 import { shapeTools } from "@/constants/data";
+import { useCanvasEditorStore } from "@/store/useCanvasEditor.Store";
+import { Trash } from "lucide-react";
 
 const ShapeSettings = () => {
+	const { canvasEditor } = useCanvasEditorStore();
+	const handleDelete = () => {
+		const activeObject = canvasEditor?.getActiveObject();
+		if (activeObject) {
+			canvasEditor?.remove(activeObject);
+			canvasEditor?.renderAll();
+		}
+	};
 	return (
 		<div className="flex items-center justify-center gap-6">
 			{shapeTools.map((shape, index) => (
@@ -18,6 +28,7 @@ const ShapeSettings = () => {
 					<PopoverContent>{shape.component}</PopoverContent>
 				</Popover>
 			))}
+			<Trash onClick={handleDelete} />
 		</div>
 	);
 };

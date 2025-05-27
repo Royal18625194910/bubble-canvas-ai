@@ -1,9 +1,14 @@
 import AddImageSettings from "@/containers/AddImageSettings";
 import BackgroundSettings from "@/containers/BackgroundSettings";
+import BorderColor from "@/containers/BorderColor";
+import BorderWidth from "@/containers/BorderWidth";
 import ElementSettings from "@/containers/ElementSettings";
 import FillColor from "@/containers/FillColor";
+import Opacity from "@/containers/Opacity";
+import Radius from "@/containers/Radius";
 import {
 	Atom,
+	Blend,
 	Circle,
 	ComponentIcon,
 	Folder,
@@ -17,8 +22,6 @@ import {
 	Settings,
 	Square,
 	SquareRoundCorner,
-	Star,
-	Trash,
 	Triangle,
 	Type,
 	WalletCardsIcon,
@@ -136,10 +139,6 @@ export const Shapes = [
 		icon: Triangle,
 	},
 	{
-		name: "Star",
-		icon: Star,
-	},
-	{
 		name: "Line",
 		icon: Minus,
 	},
@@ -154,17 +153,25 @@ export const shapeTools = [
 	{
 		name: "rect",
 		icon: Square,
+		component: <BorderColor />,
 	},
 	{
 		name: "line",
 		icon: Minus,
+		component: <BorderWidth />,
+	},
+	{
+		name: "opacity",
+		icon: Blend,
+		component: <Opacity />,
 	},
 	{
 		name: "radius",
 		icon: SquareRoundCorner,
+		component: <Radius />,
 	},
-	{
-		name: "delete",
-		icon: Trash,
-	},
+	// {
+	// 	name: "delete",
+	// 	icon: Trash,
+	// },
 ];
