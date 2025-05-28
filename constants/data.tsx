@@ -1,4 +1,5 @@
 import AddImageSettings from "@/containers/AddImageSettings";
+import AITransformSettings from "@/containers/AITransformSettings";
 import BackgroundSettings from "@/containers/BackgroundSettings";
 import BorderColor from "@/containers/BorderColor";
 import BorderWidth from "@/containers/BorderWidth";
@@ -27,6 +28,7 @@ import {
 	WalletCardsIcon,
 	WandSparkles,
 } from "lucide-react";
+import images from "./images";
 
 export const WorkSpaceMenus = [
 	{
@@ -111,6 +113,7 @@ export const SideBarMenus = [
 		name: "AI",
 		icon: WandSparkles,
 		description: "use  AI to start designing",
+		component: <AITransformSettings />,
 	},
 	{
 		name: "Background",
@@ -174,4 +177,39 @@ export const shapeTools = [
 	// 	name: "delete",
 	// 	icon: Trash,
 	// },
+];
+
+export const AITransformTools = [
+	{
+		name: "Background Remove",
+		command: "e-bgremove",
+		image: images.rmbg,
+	},
+	{
+		name: "Change Background",
+		command: "e-changebg-prompt-snow",
+		image: images.changebg,
+		input: true,
+	},
+	{
+		name: "Generate fill",
+		command: "bg-genfill,w-1000,h-960,cm-pad_resize",
+		image: images.genfill,
+		input: true,
+	},
+	{
+		name: "AI drop shadow",
+		command: "e-dropshadow",
+		image: images.shadow,
+	},
+	{
+		name: "Upscale",
+		command: "e-upscale",
+		image: images.upscale,
+	},
+	{
+		name: "Smart Crop",
+		command: "fo-auto",
+		image: images.smartAuto,
+	},
 ];

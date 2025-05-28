@@ -16,7 +16,7 @@ const Radius = () => {
 			canvasEditor?.add(activeObject);
 			canvasEditor?.renderAll();
 		}
-	};
+	}; 
 	return (
 		<div>
 			<h2>Radius</h2>

@@ -1,4 +1,4 @@
-import TopNavBar from "@/components/TopNavBar";
+import TopNavBar from "@/containers/TopNavBar";
 import { useCanvasEditorStore } from "@/store/useCanvasEditor.Store";
 import { Canvas } from "fabric";
 import { useEffect, useRef, useState } from "react";

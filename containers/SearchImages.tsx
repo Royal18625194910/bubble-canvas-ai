@@ -49,7 +49,7 @@ const SearchImages = () => {
 					</Button>
 				</div>
 			</div>
-			<div className="mt-4 grid grid-cols-2 gap-4 h-[70vh] overflow-y-auto py-2">
+			<div className="mt-4 grid grid-cols-2 gap-4 h-[70vh] overflow-y-auto py-2 scrollbar-hidden">
 				{imgs.map((img: any) => (
 					<div key={img.id} onClick={() => addImgToCanvas(img.urls.small)}>
 						<Image
