@@ -7,9 +7,13 @@ import ElementSettings from "@/containers/ElementSettings";
 import FillColor from "@/containers/FillColor";
 import Opacity from "@/containers/Opacity";
 import Radius from "@/containers/Radius";
+import TextSettings from "@/containers/TextSettings";
 import {
+	ArrowDown,
+	ArrowUp,
 	Atom,
 	Blend,
+	BookType,
 	Circle,
 	ComponentIcon,
 	Folder,
@@ -108,6 +112,7 @@ export const SideBarMenus = [
 		name: "Text",
 		icon: Type,
 		description: "Select a Text to start designing",
+		component: <TextSettings />,
 	},
 	{
 		name: "AI",
@@ -179,7 +184,14 @@ export const shapeTools = [
 	// },
 ];
 
-export const AITransformTools = [
+export type AITransformTool = {
+	name: string;
+	command: string;
+	image: any;
+	input?: boolean;
+};
+
+export const AITransformTools: AITransformTool[] = [
 	{
 		name: "Background Remove",
 		command: "e-bgremove",
@@ -192,10 +204,9 @@ export const AITransformTools = [
 		input: true,
 	},
 	{
-		name: "Generate fill",
+		name: "Generative fill",
 		command: "bg-genfill,w-1000,h-960,cm-pad_resize",
 		image: images.genfill,
-		input: true,
 	},
 	{
 		name: "AI drop shadow",
@@ -208,8 +219,120 @@ export const AITransformTools = [
 		image: images.upscale,
 	},
 	{
-		name: "Smart Crop",
+		name: "Smart crop",
 		command: "fo-auto",
-		image: images.smartAuto,
+		image: images.smartcrop,
 	},
+	{
+		name: "Contrast",
+		command: "e-contrast",
+		image: images.contrast,
+	},
+	{
+		name: "Grayscale",
+		command: "e-grayscale",
+		image: images.grayscale,
+	},
+	{
+		name: "Blur",
+		command: "bl-10",
+		image: images.blur,
+	},
+	{
+		name: "Flip",
+		command: "e-flip",
+		image: images.flip,
+	},
+];
+
+export const TextSettingsList = [
+	{
+		name: "Fill",
+		icon: Palette,
+		component: <FillColor />,
+	},
+	{
+		name: "Stroke Color",
+		icon: Square,
+		component: <BorderColor />,
+	},
+	{
+		name: "Stroke Width",
+		icon: Minus,
+		component: <BorderWidth />,
+	},
+	{
+		name: "Opacity",
+		icon: Blend,
+		component: <Opacity />,
+	},
+	{
+		name: "Font",
+		icon: BookType,
+	},
+	{
+		name: "Bring Front",
+		icon: ArrowUp,
+	},
+	{
+		name: "Move Back",
+		icon: ArrowDown,
+	},
+];
+
+export const FontFamilyList = [
+	"Arial",
+	"Arial Black",
+	"Verdana",
+	"Helvetica",
+	"Tahoma",
+	"Trebuchet MS",
+	"Times New Roman",
+	"Georgia",
+	"Garamond",
+	"Courier New",
+	"Brush Script MT",
+	"Palatino",
+	"Bookman",
+	"Comic Sans MS",
+	"Impact",
+	"Lucida Sans Unicode",
+	"Geneva",
+	"Lucida Console",
+];
+
+export const StickerList = [
+	"https://cdn-icons-png.flaticon.com/256/428/428094.png",
+	"https://cdn-icons-png.flaticon.com/256/2111/2111463.png",
+	"https://cdn-icons-png.flaticon.com/256/5968/5968764.png",
+	"https://cdn-icons-png.flaticon.com/256/1384/1384060.png",
+	"https://cdn-icons-png.flaticon.com/256/733/733585.png",
+	"https://cdn-icons-png.flaticon.com/256/2111/2111646.png",
+	"https://cdn-icons-png.flaticon.com/256/4494/4494477.png",
+	"https://cdn-icons-png.flaticon.com/256/281/281764.png",
+	"https://cdn-icons-png.flaticon.com/256/1409/1409941.png",
+	"https://cdn-icons-png.flaticon.com/256/10851/10851235.png",
+	"https://cdn-icons-png.flaticon.com/256/520/520460.png",
+	"https://cdn-icons-png.flaticon.com/256/1791/1791311.png",
+	"https://cdn-icons-png.flaticon.com/256/1791/1791320.png",
+	"https://cdn-icons-png.flaticon.com/256/1791/1791292.png",
+	"https://cdn-icons-png.flaticon.com/256/1791/1791355.png",
+	"https://cdn-icons-png.flaticon.com/256/1791/1791307.png",
+	"https://cdn-icons-png.flaticon.com/256/7996/7996409.png",
+	"https://cdn-icons-png.flaticon.com/256/8760/8760748.png",
+	"https://cdn-icons-png.flaticon.com/256/5171/5171530.png",
+	"https://cdn-icons-png.flaticon.com/256/5175/5175169.png",
+	"https://cdn-icons-png.flaticon.com/256/7096/7096435.png",
+	"https://cdn-icons-png.flaticon.com/256/346/346167.png",
+	"https://cdn-icons-png.flaticon.com/256/1776/1776968.png",
+	"https://cdn-icons-png.flaticon.com/256/1497/1497177.png",
+	"https://cdn-icons-png.flaticon.com/256/2517/2517029.png",
+	"https://cdn-icons-png.flaticon.com/256/2276/2276906.png",
+	"https://cdn-icons-png.flaticon.com/256/6604/6604292.png",
+	"https://cdn-icons-png.flaticon.com/256/6010/6010131.png",
+	"https://cdn-icons-png.flaticon.com/256/11167/11167978.png",
+	"https://cdn-icons-png.flaticon.com/256/11145/11145432.png",
+	"https://cdn-icons-png.flaticon.com/256/7645/7645528.png",
+	"https://cdn-icons-png.flaticon.com/256/16116/16116383.png",
+	"https://cdn-icons-png.flaticon.com/256/639/639373.png",
 ];
