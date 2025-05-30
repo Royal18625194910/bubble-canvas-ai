@@ -25,7 +25,9 @@ const SearchImages = () => {
 
 	const addImgToCanvas = async (imgUrl: string) => {
 		console.log("imgUrl", imgUrl);
-		const canvasImg = await FabricImage.fromURL(imgUrl);
+		const canvasImg = await FabricImage.fromURL(imgUrl, {
+			crossOrigin: "anonymous",
+		});
 		canvasEditor?.add(canvasImg);
 		canvasEditor?.renderAll();
 	};
@@ -58,6 +60,7 @@ const SearchImages = () => {
 							width={300}
 							height={300}
 							className="rounded-md w-full h-[80px] object-cover"
+							loading="lazy"
 						/>
 					</div>
 				))}

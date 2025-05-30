@@ -1,3 +1,4 @@
+import { Toaster } from "@/components/ui/toaster";
 import { StackProvider, StackTheme } from "@stackframe/stack";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
@@ -30,6 +31,7 @@ export default function RootLayout({
 		<html lang="en">
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+				<Toaster />
 				<StackProvider app={stackServerApp}>
 					<StackTheme>
 						<ConvexClientProvider>{children}</ConvexClientProvider>

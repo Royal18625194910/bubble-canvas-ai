@@ -38,13 +38,16 @@ const ImageUpload = (props: ImageUploadProps) => {
 	};
 
 	const addToCanvas = async () => {
-		const canvasImg = await FabricImage.fromURL(img as string);
+		const canvasImg = await FabricImage.fromURL(img as string, {
+			crossOrigin: "anonymous",
+		});
 		canvasEditor?.add(canvasImg);
 		canvasEditor?.renderAll();
 		setImg(null);
 	};
 
 	useEffect(() => {
+		console.log("props.seletedAI", props.seletedAI);
 		if (props.seletedAI && img) {
 			setLoading(true);
 			let imgUrl = img;
@@ -70,6 +73,7 @@ const ImageUpload = (props: ImageUploadProps) => {
 					width={300}
 					height={200}
 					className="h-[150px] w-full rounded-lg object-cover"
+					loading="lazy"
 				/>
 			) : (
 				<label

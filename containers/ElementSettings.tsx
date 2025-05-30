@@ -1,6 +1,7 @@
-import { Shapes } from "@/constants/data";
+import { Shapes, StickerList } from "@/constants/data";
 import { useCanvasEditorStore } from "@/store/useCanvasEditor.Store";
-import { Circle, Line, Rect, Triangle } from "fabric";
+import { Circle, FabricImage, Line, Rect, Triangle } from "fabric";
+import Image from "next/image";
 
 const ElementSettings = () => {
 	const properties = {
@@ -40,16 +41,42 @@ const ElementSettings = () => {
 		}
 	};
 
+	const onStickerSelect = async (sticker: string) => {
+		if (!canvasEditor) return;
+		const canvasImg = await FabricImage.fromURL(sticker, {
+			crossOrigin: "anonymous",
+		});
+		console.log("onStickerSelect", sticker, canvasImg);
+		canvasEditor?.add(canvasImg);
+		canvasEditor?.renderAll();
+	};
+
 	return (
-		<div className="grid grid-cols-2 gap-4 px-3 py-2">
-			{Shapes.map((shape, index) => (
-				<div
-					key={index}
-					onClick={() => onShapeSelect(shape.name)}
-					className="flex justify-center items-center">
-					<shape.icon size={100} fill="black" />
-				</div>
-			))}
+		<div>
+			<div className="grid grid-cols-2 gap-4 px-3 py-2">
+				{Shapes.map((shape, index) => (
+					<div
+						key={index}
+						onClick={() => onShapeSelect(shape.name)}
+						className="flex justify-center items-center">
+						<shape.icon size={100} fill="black" />
+					</div>
+				))}
+			</div>
+			<h2>Sticks</h2>
+			<div className="grid grid-cols-2 gap-4 px-3 py-2 h-[70vh] overflow-auto">
+				{StickerList.map((sticker, index) => (
+					<Image
+						key={index}
+						src={sticker}
+						alt={index + ""}
+						width={100}
+						height={100}
+						onClick={() => onStickerSelect(sticker)}
+						className="cursor-pointer"
+					/>
+				))}
+			</div>
 		</div>
 	);
 };

@@ -22,11 +22,11 @@ const Opacity = () => {
 		<div>
 			<h2>Opacity</h2>
 			<Slider
-				defaultValue={[1]}
+				defaultValue={[0.1]}
 				onValueChange={(v) => onOpacityChange(v[0])}
 				min={0}
-				max={1}
-				step={0.01}
+				max={0.1}
+				step={0.001}
 			/>
 		</div>
 	);

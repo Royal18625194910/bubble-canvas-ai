@@ -24,7 +24,9 @@ const UploadImage = () => {
 			file: file as any,
 			fileName: designId + ".png",
 		});
-		const canvasImg = await FabricImage.fromURL(img.url);
+		const canvasImg = await FabricImage.fromURL(img.url, {
+			crossOrigin: "anonymous",
+		});
 		canvasEditor?.add(canvasImg);
 		canvasEditor?.renderAll();
 		setLoading(false);

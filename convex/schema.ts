@@ -12,7 +12,7 @@ export default defineSchema({
     name: v.string(),
     width: v.number(),
     height: v.number(),
-    jsonTemplate: v.optional(v.string()),
+    jsonTemplate: v.optional(v.any()),
     imagePreview: v.optional(v.string()),
     uid: v.id("users"),
 

@@ -21,6 +21,7 @@ const AITransformSettings = () => {
 							src={item.image}
 							alt={item.name}
 							className="w-full h-[70px] object-cover rounded-xl"
+							unoptimized={true}
 						/>
 						<h2 className="text-xs">{item.name}</h2>
 					</div>

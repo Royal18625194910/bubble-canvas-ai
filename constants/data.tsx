@@ -5,6 +5,7 @@ import BorderColor from "@/containers/BorderColor";
 import BorderWidth from "@/containers/BorderWidth";
 import ElementSettings from "@/containers/ElementSettings";
 import FillColor from "@/containers/FillColor";
+import FontFamily from "@/containers/FontFamily";
 import Opacity from "@/containers/Opacity";
 import Radius from "@/containers/Radius";
 import TextSettings from "@/containers/TextSettings";
@@ -269,6 +270,7 @@ export const TextSettingsList = [
 	{
 		name: "Font",
 		icon: BookType,
+		component: <FontFamily />,
 	},
 	{
 		name: "Bring Front",
