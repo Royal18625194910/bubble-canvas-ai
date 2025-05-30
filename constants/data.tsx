@@ -8,6 +8,7 @@ import FillColor from "@/containers/FillColor";
 import FontFamily from "@/containers/FontFamily";
 import Opacity from "@/containers/Opacity";
 import Radius from "@/containers/Radius";
+import TemplateList from "@/containers/TemplateList";
 import TextSettings from "@/containers/TextSettings";
 import {
 	ArrowDown,
@@ -96,6 +97,7 @@ export const SideBarMenus = [
 		name: "Templates",
 		icon: LayoutPanelTop,
 		description: "Select a template to start designing",
+		component: <TemplateList />,
 	},
 	{
 		name: "Elements",

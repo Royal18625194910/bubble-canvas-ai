@@ -15,6 +15,11 @@ export default defineSchema({
     jsonTemplate: v.optional(v.any()),
     imagePreview: v.optional(v.string()),
     uid: v.id("users"),
-
+  }),
+  templates: defineTable({
+    name: v.string(),
+    imagePreview: v.string(),
+    jsonData: v.any(),
+    active: v.boolean(),
   })
 });
