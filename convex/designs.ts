@@ -44,3 +44,17 @@ export const SaveDesign = mutation({
     return await ctx.db.patch(args.id, {...design, jsonTemplate: args.jsonTemplate,imagePreview: args?.imagePreview})
   }
 })
+
+// 获取designs根据uid
+export const GetDesignsByUid = query({
+   args: {
+    uid: v.id("users"),
+  },
+  handler: async (ctx, args) => {
+    const designs = await ctx.db
+      .query("designs")
+      .filter((q) => q.eq(q.field("uid"), args.uid))
+      .collect();
+    return designs;
+  }
+})
