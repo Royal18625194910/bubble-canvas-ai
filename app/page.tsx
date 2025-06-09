@@ -1,11 +1,16 @@
-import { Button } from "@/components/ui/button";
-import { UserButton } from "@stackframe/stack";
+"use client";
+import { UserButton, useUser } from "@stackframe/stack";
+import { redirect } from "next/navigation";
 
-export default function Home() {
+export default function Home(props: unknown) {
+	const user = useUser();
+	console.log("user", user);
+	if (user) {
+		redirect("/workspace");
+	}
+
 	return (
 		<div>
-			123
-			<Button>123</Button>
 			<UserButton />
 		</div>
 	);

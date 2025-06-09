@@ -1,9 +1,10 @@
 "use client";
 import { WorkSpaceMenus } from "@/constants/data";
 import { PlusIcon } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const SideBar = () => {
+	const router = useRouter();
 	const path = usePathname();
 
 	return (
@@ -19,9 +20,10 @@ const SideBar = () => {
 			{WorkSpaceMenus.map((menu, index) => (
 				<div
 					key={index}
-					className="flex  flex-col justify-center gap-2 text-purple-800 items-center p-2 ">
+					onClick={() => router.push(menu.path)}
+					className=" flex  flex-col justify-center gap-2 text-purple-800 items-center p-2 ">
 					<div
-						className={`hover:bg-purple-300/80 rounded-2xl p-2 cursor-pointer ${menu.path == path && "bg-purple-300/80"}`}>
+						className={`hover:bg-purple-300/80  rounded-2xl p-2 cursor-pointer ${menu.path == path && "bg-purple-300/80"}`}>
 						<menu.icon className="w-7 h-7" />
 					</div>
 					<span className="text-sm">{menu.name}</span>

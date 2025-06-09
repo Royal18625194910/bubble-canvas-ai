@@ -1,18 +1,20 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { api } from "@/convex/_generated/api";
-import { useUserStore } from "@/store/useUser.Store";
+import { getStorage } from "@/utils";
 import { useConvex } from "convex/react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import CustomDialog from "./CustomDialog";
 
 const RecentDesign = () => {
 	const convex = useConvex();
+	const router = useRouter();
 
-	const { user } = useUserStore();
 	const [designList, setDesignList] = useState<any[]>([]);
 	const getDesigns = async () => {
+		const user = getStorage("user");
 		console.log("user", user);
 		if (!user) return;
 		const designs = await convex.query(api.designs.GetDesignsByUid, {
@@ -41,7 +43,10 @@ const RecentDesign = () => {
 			)}
 			<div className="grid lg:grid-cols-5 lg:gap-4 mt-4">
 				{designList?.map((design) => (
-					<div key={design._id} className="bg-gray-50 rounded-lg">
+					<div
+						key={design._id}
+						onClick={() => router.push(`/design/${design._id}`)}
+						className="bg-gray-50 rounded-lg">
 						<Image
 							src={design.imagePreview}
 							alt={design.name}

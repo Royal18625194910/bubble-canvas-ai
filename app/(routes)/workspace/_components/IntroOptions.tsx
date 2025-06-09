@@ -3,21 +3,24 @@ import { WorkSpaceProducts } from "@/constants/data";
 import { api } from "@/convex/_generated/api";
 import { useUserStore } from "@/store/useUser.Store";
 import { useMutation } from "convex/react";
-import { BsYoutube } from "react-icons/bs";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 import RecentDesign from "./RecentDesign";
 
 const IntroOptions = () => {
 	const CreateNewDesignMutation = useMutation(api.designs.CreateNewDesign);
 	const user = useUserStore((state) => state.user);
+	const router = useRouter();
 
 	const handleAddNewDesign = async (option: any) => {
-		// const res = await CreateNewDesignMutation({
-		// 	name: option.name,
-		// 	width: option.width,
-		// 	height: option.height,
-		// 	uid: user._id,
-		// });
+		const res = await CreateNewDesignMutation({
+			name: option.name,
+			width: option.width,
+			height: option.height,
+			uid: user._id,
+		});
 		console.log("handleAddNewDesign", option);
+		router.push(`/workspace/design/${res}`);
 	};
 
 	return (
@@ -35,8 +38,7 @@ const IntroOptions = () => {
 						key={index}
 						className="mt-4 flex flex-col items-center justify-center gap-1 cursor-pointer">
 						<div className="w-[60px] h-[60px] flex rounded-full hover:scale-125 transition-all justify-center items-center">
-							<BsYoutube size={50} color="red" />
-							{/* <FaTiktok size={50} color="black" /> */}
+							<Image src={item.img} width={60} height={60} alt={item.name} />
 						</div>
 						<span>{item.name}</span>
 					</div>

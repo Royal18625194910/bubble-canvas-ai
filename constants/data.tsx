@@ -62,33 +62,39 @@ export const WorkSpaceMenus = [
 export const WorkSpaceProducts = [
 	{
 		name: "Youtube",
+		img: images.ytImg,
+		width: 1280,
+		height: 720,
 	},
 	{
-		name: "TikTok",
+		name: "pinterest",
+		img: images.pinImg,
+		width: 1280,
+		height: 720,
 	},
 	{
 		name: "Instagram",
+		img: images.insImg,
+		width: 900,
+		height: 400,
 	},
 	{
 		name: "Facebook",
+		img: images.fbImg,
+		width: 1280,
+		height: 600,
 	},
 	{
 		name: "Twitter",
+		img: images.twImg,
+		width: 1280,
+		height: 720,
 	},
 	{
 		name: "LinkedIn",
-	},
-	{
-		name: "Reddit",
-	},
-	{
-		name: "Twitch",
-	},
-	{
-		name: "YouTube",
-	},
-	{
-		name: "TikTok",
+		img: images.linkinImg,
+		width: 1000,
+		height: 600,
 	},
 ];
 

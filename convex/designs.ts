@@ -58,3 +58,26 @@ export const GetDesignsByUid = query({
     return designs;
   }
 })
+
+export const CreateDesignFromTemplate = mutation({
+  args: {
+    name: v.string(),
+    width: v.number(),
+    height: v.number(),
+    jsonTemplate: v.optional(v.any()),
+    imagePreview: v.optional(v.string()),
+    uid: v.id("users"),
+  },
+  handler: async (ctx, args) => {
+    const res = await ctx.db.insert("designs", {
+      name: args.name,
+      width: args.width,
+      height: args.height,
+      jsonTemplate: args.jsonTemplate,
+      imagePreview: args.imagePreview,
+      uid: args.uid,
+    })
+    return res
+}
+  
+})

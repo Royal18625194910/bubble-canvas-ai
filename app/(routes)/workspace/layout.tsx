@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import SideBar from "./_components/SideBar";
 import WorkSpaceHeader from "./_components/WorkSpaceHeader";
