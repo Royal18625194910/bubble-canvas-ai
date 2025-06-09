@@ -1,5 +1,5 @@
 "use client";
-import { UserButton, useUser } from "@stackframe/stack";
+import { useUser } from "@stackframe/stack";
 import { redirect } from "next/navigation";
 
 export default function Home(props: unknown) {
@@ -7,11 +7,9 @@ export default function Home(props: unknown) {
 	console.log("user", user);
 	if (user) {
 		redirect("/workspace");
+	} else {
+		redirect("/handler/sign-up");
 	}
 
-	return (
-		<div>
-			<UserButton />
-		</div>
-	);
+	return <div>{/* <UserButton /> */}</div>;
 }
