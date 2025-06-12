@@ -19,8 +19,8 @@ const IntroOptions = () => {
 			height: option.height,
 			uid: user._id,
 		});
-		console.log("handleAddNewDesign", option);
-		router.push(`/workspace/design/${res}`);
+		console.log("handleAddNewDesign", option, res);
+		router.push(`/design/${res}`);
 	};
 
 	return (

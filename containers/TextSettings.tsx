@@ -1,12 +1,12 @@
 import { useCanvasEditorStore } from "@/store/useCanvasEditor.Store";
-import { FabricText } from "fabric";
+import { IText } from "fabric";
 
 const TextSettings = () => {
 	const { canvasEditor } = useCanvasEditorStore();
 	const onAddText = (type: string) => {
 		console.log("Add Text", type);
 		if (type === "Heading") {
-			const textRef = new FabricText("Heading", {
+			const textRef = new IText("Heading", {
 				fontSize: 30,
 				fontWeight: "700",
 				fontFamily: "Arial",
@@ -16,7 +16,7 @@ const TextSettings = () => {
 			});
 			canvasEditor?.add(textRef);
 		} else if (type === "SubHeading") {
-			const textRef = new FabricText("SubHeading", {
+			const textRef = new IText("SubHeading", {
 				fontSize: 20,
 				fontWeight: "500",
 				fontFamily: "Arial",
@@ -26,7 +26,7 @@ const TextSettings = () => {
 			});
 			canvasEditor?.add(textRef);
 		} else if (type === "Para") {
-			const textRef = new FabricText("Para", {
+			const textRef = new IText("Para", {
 				fontSize: 18,
 				fontWeight: "400",
 				fontFamily: "Arial",

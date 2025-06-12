@@ -55,6 +55,19 @@ const CanvasEditor = (props: CanvasEditorProps) => {
 		}
 	};
 
+	// 监听如果双击的对象是文本，则进入编辑状态
+	const handleDoubleClick = (e: any) => {
+		if (!canvasEditor) return;
+		const activeObject = canvasEditor.getActiveObject();
+		console.log("activeObject", e.target, activeObject);
+		if (activeObject?.type === "text") {
+			activeObject.set({
+				selectable: true,
+				editable: true,
+			});
+		}
+	};
+
 	// 监听删除Object
 	useEffect(() => {
 		if (canvasEditor) {
@@ -69,6 +82,9 @@ const CanvasEditor = (props: CanvasEditorProps) => {
 				// 退出编辑模式后，重新启用全局 Delete 删除
 				document.addEventListener("keydown", handleDeleteKeyDown);
 			});
+
+			canvasEditor.on("mouse:dblclick", handleDoubleClick);
+
 			document.addEventListener("keydown", handleDeleteKeyDown);
 			return () => {
 				document.removeEventListener("keydown", handleDeleteKeyDown);

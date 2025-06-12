@@ -8,7 +8,7 @@ import { UserButton } from "@stackframe/stack";
 import { useMutation } from "convex/react";
 import { Download, SaveIcon } from "lucide-react";
 import Image from "next/image";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 
 type DesignHeaderProps = {
 	designInfo: any;
@@ -18,6 +18,7 @@ const DesignHeader = (props: DesignHeaderProps) => {
 	const SaveDesign = useMutation(api.designs.SaveDesign);
 	const { canvasEditor } = useCanvasEditorStore();
 	const params = useParams();
+	const router = useRouter();
 
 	// 生成缩略图
 	const generateThumbnail = async () => {
@@ -65,7 +66,13 @@ const DesignHeader = (props: DesignHeaderProps) => {
 
 	return (
 		<div className="flex items-center justify-between p-3 bg-gradient-to-r from-sky-500 via-blue-400 to-purple-500">
-			<Image src={images.logo} alt="logo" width={100} height={50} />
+			<Image
+				src={images.logo}
+				alt="logo"
+				width={100}
+				height={50}
+				onClick={() => router.push("/")}
+			/>
 			<input
 				placeholder="Design Name"
 				className="text-white border-none outline-none bg-transparent placeholder:text-white"
