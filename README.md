@@ -13,6 +13,9 @@ Bubble AI Canvas 是一个基于 Next.js 构建的在线 AI 画布设计平台�
 ### 项目管理
 ![项目管理](./showcase/projects.png)
 
+### Demo预览
+![Demo预览](./showcase/demo.gif)
+
 ## ✨ 主要功能
 
 - **AI 智能图片处理**
