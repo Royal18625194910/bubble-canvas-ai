@@ -1,58 +1,70 @@
 # Bubble AI Canvas
 
-Bubble AI Canvas 是一个基于 Next.js 构建的在线 AI 画布设计平台，提供直观的拖拽式设计体验和强大的 AI 图片处理能力。用户可以轻松创建精美的设计作品，适用于社交媒体图片、演示文稿、海报等多种场景。
-
-## 📸 项目展示
-
-### 首页概览
-![首页](./showcase/home.png)
-
-### 设计工作区
-![设计界面](./showcase/design.png)
-
-### 项目管理
-![项目管理](./showcase/projects.png)
-
-### Demo预览
 ![Demo预览](./showcase/demo.gif)
 
-## ✨ 主要功能
+Bubble AI Canvas 是一个现代化的在线设计平台，集成了强大的 AI 图片处理能力和专业的设计工具。通过直观的拖拽操作和智能的 AI 辅助功能，让设计创作变得简单高效。
 
-- **AI 智能图片处理**
-  - 智能抠图：一键去除图片背景
-  - 智能补全：AI 生成填充缺失区域
-  - 智能放大：提升图片分辨率和清晰度
-  - 智能阴影：自动生成自然阴影效果
-  - 智能调色：一键优化图片色彩
+## 📸 核心功能展示
 
-- **多样化设计工具**
-  - 图层管理：灵活调整元素层级
-  - 文本编辑：丰富的字体和样式选项
-  - 形状工具：内置多种基础形状
-  - 图片处理：调整大小、旋转、翻转等
-  - 属性设置：边框、透明度、圆角等
+### 专业设计工作区
+强大而直观的设计界面，支持多种设计元素和智能工具
+![设计界面](./showcase/design.png)
 
-- **资源管理**
-  - 模板中心：内置多种设计模板
-  - 素材库：丰富的图片和图形素材
-  - 项目管理：分类保存和管理设计作品
-  - 导出分享：支持多种格式导出
+### 项目管理与模板中心
+便捷的项目管理系统，快速开始新设计
+![项目管理](./showcase/projects.png)
 
-- **用户体验**
-  - 简洁界面：现代化 UI 设计
-  - 快捷操作：支持快捷键和右键菜单
-  - 自动保存：实时保存设计进度
-  - 响应式：适配不同屏幕尺寸
+### 简洁现代的界面
+清爽直观的用户界面，让设计过程更加流畅
+![首页](./showcase/home.png)
+
+## ✨ 核心功能
+
+### 🤖 AI 智能工具集
+- **智能抠图**：一键移除任意图片背景
+- **智能补全**：使用 AI 技术填充缺失区域
+- **智能放大**：提升图片分辨率，优化清晰度
+- **背景替换**：智能更换图片背景
+- **自动优化**：一键优化图片色彩和对比度
+
+### 🎨 专业设计工具
+- **画布编辑**
+  - 自由拖拽：灵活调整元素位置和大小
+  - 图层控制：自由调整元素层级和对齐
+  - 快捷操作：支持复制、删除、组合等操作
+  - 历史记录：支持撤销和重做
+  
+- **样式编辑**
+  - 文字美化：丰富的字体库和文本样式
+  - 图形工具：基础形状和自定义SVG支持
+  - 视觉效果：边框、阴影、透明度、圆角等
+  - 滤镜应用：内置多种图片滤镜效果
+
+### 📦 资源管理系统
+- **模板系统**：内置多种设计模板，一键应用
+- **项目管理**：分类保存设计作品，快速查找
+- **本地存储**：自动保存设计进度，防止丢失
+- **导出分享**：支持多种格式导出成品
 
 ## 🛠️ 技术栈
 
-- [Next.js 14](https://nextjs.org/)  — React 服务端渲染与静态网站生成框架
-- [TypeScript](https://www.typescriptlang.org/)  — 类型安全的 JavaScript 超集
-- [Tailwind CSS](https://tailwindcss.com/)  — 实用优先的 CSS 框架
-- [shadcn/ui](https://ui.shadcn.com/)  — 可重用的组件库
-- [Convex](https://convex.dev/)  — 实时数据库与后端服务
-- [ImageKit](https://imagekit.io/)  — 图片处理和 CDN 服务
-- [Geist Font](https://vercel.com/font)  — 现代无衬线字体
+### 核心技术
+- [Fabric.js](http://fabricjs.com/) — 强大的 HTML5 Canvas 库，提供完整的画布交互能力
+- [Next.js 14](https://nextjs.org/) — React 服务端渲染与静态网站生成框架
+- [TypeScript](https://www.typescriptlang.org/) — 类型安全的 JavaScript 超集
+
+### UI 和样式
+- [Tailwind CSS](https://tailwindcss.com/) — 实用优先的 CSS 框架
+- [Radix UI](https://www.radix-ui.com/) — 无样式、可访问的 UI 组件
+- [Geist Font](https://vercel.com/font) — 现代无衬线字体
+
+### 状态管理和数据
+- [Zustand](https://zustand-demo.pmnd.rs/) — 轻量级状态管理
+- [Convex](https://convex.dev/) — 实时数据库与后端服务
+
+### 图片处理
+- [ImageKit](https://imagekit.io/) — 图片处理和 CDN 服务
+- [react-color](https://casesandberg.github.io/react-color/) — 颜色选择器组件
 
 ## 🔧 系统要求
 
